@@ -1,1 +1,68 @@
 
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Restaurant - Commande</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h2 { background-color: #ff4d4d; color: white; padding: 10px; border-radius: 5px; }
+    .section { margin-bottom: 30px; }
+    label { display: block; margin: 5px 0; }
+    .total { font-size: 24px; margin-top: 20px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>  <h1>🍕 Commande en Ligne</h1>  <form id="orderForm">
+    <div class="section">
+      <h2>Pizza</h2>
+      <label><input type="checkbox" name="item" value="12"> Regina - 12€</label>
+      <label><input type="checkbox" name="item" value="12"> Chèvre Miel - 12€</label>
+      <label><input type="checkbox" name="item" value="12.5"> Di Montagna - 12,5€</label>
+      <label><input type="checkbox" name="item" value="12.5"> 4 Fromage - 12,5€</label>
+      <label><input type="checkbox" name="item" value="14"> Pistachio - 14€</label>
+      <label><input type="checkbox" name="item" value="15"> Tartufo - 15€</label>
+    </div><div class="section">
+  <h2>Roto</h2>
+  <label><input type="checkbox" name="item" value="9.9"> Regina - 9,90€</label>
+  <label><input type="checkbox" name="item" value="9.9"> Street - 9,90€</label>
+  <label><input type="checkbox" name="item" value="9.9"> Chicken - 9,90€</label>
+</div>
+
+<div class="section">
+  <h2>Pide & Lahmacun</h2>
+  <label><input type="checkbox" name="item" value="9.5"> Pide Sucuk - 9,50€</label>
+  <label><input type="checkbox" name="item" value="9.5"> Pide Boeuf - 9,50€</label>
+  <label><input type="checkbox" name="item" value="7"> Lahmacun - 7€</label>
+</div>
+
+<div class="section">
+  <h2>Desserts</h2>
+  <label><input type="checkbox" name="item" value="3.9"> Tiramisu maison - 3,90€</label>
+  <label><input type="checkbox" name="item" value="3.9"> Moelleux chocolat - 3,90€</label>
+  <label><input type="checkbox" name="item" value="5.9"> Macarons - 5,90€</label>
+  <label><input type="checkbox" name="item" value="6.9"> Pizza Nutella - 6,90€</label>
+</div>
+
+<div class="section">
+  <h2>Boissons</h2>
+  <label><input type="checkbox" name="item" value="2"> Coca - 2€</label>
+  <label><input type="checkbox" name="item" value="2"> Fanta - 2€</label>
+  <label><input type="checkbox" name="item" value="2"> Oasis - 2€</label>
+  <label><input type="checkbox" name="item" value="2"> Perrier - 2€</label>
+</div>
+
+<button type="button" onclick="calculateTotal()">Calculer Total</button>
+<div class="total" id="total">Total: 0€</div>
+
+  </form>  <script>
+    function calculateTotal() {
+      const items = document.querySelectorAll('input[name="item"]:checked');
+      let total = 0;
+      items.forEach(item => {
+        total += parseFloat(item.value);
+      });
+      document.getElementById('total').textContent = `Total: ${total.toFixed(2)}€`;
+    }
+  </script></body>
+</html>
